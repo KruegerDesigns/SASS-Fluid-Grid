@@ -1,0 +1,89 @@
+// Adam Krueger's Simple 2, 3, 4, or 5 column Fluid Grid
+// Grid names explained: .col-[numerator]-[denominator]
+
+// SASS Variables
+// Define Grid Width, or leave 100% for a fluid grid
+$grid-width: 980px;
+
+// Define Grid Gutters, also top/bottom margins
+$grid-gutters: 10px;
+
+/* apply a natural box layout model to all elements */
+.grid-row, .grid-row *, .grid-row *:before, .grid-row *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+/* Clear Fix */
+.grid-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.grid-row {
+  width: $grid-width;
+  margin: 0 auto;
+  // padding-left: $grid-gutters;
+
+  /* Thirds */
+  .col-1-3 {
+    width:33.33%;
+  }
+  .col-2-3 {
+    width:66.66%;
+  }
+
+  /* Quarters (as well as one-half)*/
+  .col-1-4 {
+    width:24.99%;
+  }
+  .col-2-4, .col-1-2 {
+    width:49.99%;
+  }
+  .col-3-4 {
+    width:74.99%;
+  }
+
+  /* Fifths */
+  .col-1-5 {
+    width:19.99%;
+  }
+  .col-2-5 {
+    width:39.99%;
+  }
+  .col-3-5 {
+    width:59.99%;
+  }
+  .col-4-5 {
+    width:79.99%;
+  }
+
+  /* Full */
+  .col-2-2, .col-3-3, .col-4-4, .col-5-5, .full-width {
+    width:100%;
+    margin-bottom:$grid-gutters;
+    padding:0 $grid-gutters 0 0;
+  }
+
+  /* Global Grid Block Properties */
+  .col-1-2,
+  .col-1-3, .col-2-3,
+  .col-1-4, .col-2-4, .col-3-4,
+  .col-1-5, .col-2-5, .col-3-5, .col-4-5 {
+    float:left;
+    margin-bottom: $grid-gutters;
+    // padding:0 $grid-gutters 0 0;
+    padding:0 $grid-gutters;
+  }
+
+  /* Reverse the order of Grid blocks */
+  &.alt {
+    .col-1-2,
+    .col-1-3, .col-2-3,
+    .col-1-4, .col-2-4, .col-3-4,
+    .col-1-5, .col-2-5, .col-3-5, .col-4-5 {
+      float:right;
+    }
+  }
+
+}
